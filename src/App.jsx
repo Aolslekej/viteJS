@@ -2,30 +2,52 @@ import { useState } from "react";
 import posts from "./posts.json";
 import "./App.scss";
 import Card from "./Components/Card/Card";
+import Form from "./Components/Form/Form";
 
 function App() {
-  const [arr, setArr] = useState(posts);
+  const [arr, setArr] = useState([]);
+  const [item, setItem] = useState("");
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   function delCard(id) {
     const copyArr = [...arr];
     const resultArr = copyArr.filter((item) => item.id != id);
     setArr(resultArr);
   }
-  function addPost() {
-    const newPost = {
-      userId: 10,
-      id: 100,
-      title: "at nam consequatur ea labore ea harum",
-      body: "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut",
-    };
-    setArr([...arr, newPost]);
+
+  const addPost = (name, phone, text, email, deliv) => {
+    setArr([...arr, { id: Date.now(), name, phone, text, email, deliv }]);
+    console.log(arr)
+  };
+
+  function newItem(name, phone, text, email, deliv) {
+    setItem({ id: Date.now(), name, phone, text, email, deliv });
   }
+
   return (
     <div>
-      <button onClick={addPost}>Add post</button>
-      {arr.map((item, index) => (
+      <button
+        type="button"
+        className="buy"
+        onClick={() => setIsOpenModal(true)}
+      >
+        open modal
+      </button>
+      {isOpenModal && (
+        <div className="modal">
+          <div className="content-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="buy close" onClick={() => setIsOpenModal(false)}>
+              X
+            </button>
+            <Form addPost={addPost}/>
+          </div>
+        </div>
+      )}
+      <>
+       {arr.map((item, index) => (
         <Card object={item} delCard={delCard} key={index} />
       ))}
+      </>
     </div>
   );
 }

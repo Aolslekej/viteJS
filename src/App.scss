@@ -40,3 +40,59 @@
 .read-the-docs {
   color: #888;
 }
+
+.modal {
+  background-color: white;
+  padding: 20px;
+  width: 100%;
+}
+
+.close {
+  margin-top: 50px;
+  margin-left: -5%;
+  margin-bottom: 50px;
+}
+
+input {
+  background-color: #f5f5f5;
+  width: 277px;
+  height: 38px;
+  color: black;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+}
+
+.content_cab {
+  display: flex;
+}
+
+.item2 {
+  margin-left: 20px;
+}
+
+.other {
+  text-align: left;
+}
+
+.adres {
+  width: 595px;
+  height: 80px;
+}
+
+.buy {
+  background-color: #181818;
+  color: white;
+  width: 255px;
+  height: 36px;
+  border-radius: 45px;
+}
+
+h1 {
+  color: black;
+}
+
+.show {
+  margin-top: 100px;
+}
