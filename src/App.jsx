@@ -6,7 +6,6 @@ import Form from "./Components/Form/Form";
 
 function App() {
   const [arr, setArr] = useState([]);
-  const [item, setItem] = useState("");
   const [isOpenModal, setIsOpenModal] = useState(false);
 
   function delCard(id) {
@@ -19,10 +18,6 @@ function App() {
     setArr([...arr, { id: Date.now(), name, phone, text, email, deliv }]);
     console.log(arr)
   };
-
-  function newItem(name, phone, text, email, deliv) {
-    setItem({ id: Date.now(), name, phone, text, email, deliv });
-  }
 
   return (
     <div>
